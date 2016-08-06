@@ -2,7 +2,7 @@
 
 class SessionTimeoutClientModule extends AApiModule
 {
-	public function GetAppData($oUser = null)
+	public function GetAppData()
 	{
 		return array(
 			'TimeoutSeconds' => 0 // AppData.App.IdleSessionTimeout
