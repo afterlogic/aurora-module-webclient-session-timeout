@@ -3,7 +3,7 @@
 var
 	$ = require('jquery'),
 	
-	App = require('modules/CoreClient/js/App.js'),
+	App = require('%PathToCoreWebclientModule%/js/App.js'),
 			
 	aSessionTimeoutFunctions = [],
 	iSessionTimeout = 0,
