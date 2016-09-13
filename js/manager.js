@@ -28,12 +28,16 @@ function SetSessionTimeout()
 }
 
 module.exports = function (oAppData) {
-	var oSettings = oAppData['%ModuleName%'] || {};
-	
+	var
+		App = require('%PathToCoreWebclientModule%/js/App.js'),
+		
+		oSettings = oAppData['%ModuleName%'] || {}
+	;
+
 	if (App.getUserRole() !== Enums.UserRole.Anonymous && typeof oSettings.TimeoutSeconds === 'number' && oSettings.TimeoutSeconds > 0)
 	{
 		iTimeoutSeconds = oSettings.TimeoutSeconds;
-		
+
 		SetSessionTimeout();
 
 		$('body')
@@ -41,13 +45,15 @@ module.exports = function (oAppData) {
 			.on('keydown', SetSessionTimeout)
 		;
 	}
+
+	if (App.getUserRole() === Enums.UserRole.NormalUser)
+	{
+		return {
+			registerFunction: function (oSessionTimeoutFunction) {
+				aSessionTimeoutFunctions.push(oSessionTimeoutFunction);
+			}
+		};
+	}
 	
-	return {
-		isAvailable: function (iUserRole, bPublic) {
-			return !bPublic && iUserRole === Enums.UserRole.NormalUser;
-		},
-		registerFunction: function (oSessionTimeoutFunction) {
-			aSessionTimeoutFunctions.push(oSessionTimeoutFunction);
-		}
-	};
+	return null;
 };
