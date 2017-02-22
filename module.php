@@ -1,6 +1,8 @@
 <?php
 
-class SessionTimeoutWeblientModule extends AApiModule
+namespace Aurora\Modules;
+
+class SessionTimeoutWeblientModule extends \AApiModule
 {
 	/***** public functions might be called with web API *****/
 	/**
