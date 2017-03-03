@@ -2,7 +2,7 @@
 
 namespace Aurora\Modules;
 
-class SessionTimeoutWeblientModule extends \Aurora\System\AbstractModule
+class SessionTimeoutWeblientModule extends \Aurora\System\Module\AbstractModule
 {
 	/***** public functions might be called with web API *****/
 	/**
