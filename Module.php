@@ -34,7 +34,7 @@ class Module extends \Aurora\System\Module\AbstractWebclientModule
 		\Aurora\System\Api::checkUserRoleIsAtLeast(\EUserRole::Anonymous);
 		
 		return array(
-			'TimeoutSeconds' => 0 // AppData.App.IdleSessionTimeout
+			'TimeoutMinutes' => $this->getConfig('TimeoutMinutes', 30),
 		);
 	}
 	/***** public functions might be called with web API *****/

@@ -1,13 +1,14 @@
 'use strict';
 
 var
+	_ = require('underscore'),
 	$ = require('jquery'),
 	
 	App = require('%PathToCoreWebclientModule%/js/App.js'),
 			
 	aSessionTimeoutFunctions = [],
 	iSessionTimeout = 0,
-	iTimeoutSeconds = 0
+	iTimeoutMinutes = 0
 ;
 
 function LogoutBySessionTimeout()
@@ -24,7 +25,7 @@ function LogoutBySessionTimeout()
 function SetSessionTimeout()
 {
 	clearTimeout(iSessionTimeout);
-	iSessionTimeout = setTimeout(LogoutBySessionTimeout, iTimeoutSeconds * 1000);
+	iSessionTimeout = setTimeout(LogoutBySessionTimeout, iTimeoutMinutes * 60 * 1000);
 }
 
 module.exports = function (oAppData) {
@@ -34,9 +35,9 @@ module.exports = function (oAppData) {
 		oSettings = oAppData['%ModuleName%'] || {}
 	;
 
-	if (App.getUserRole() !== Enums.UserRole.Anonymous && typeof oSettings.TimeoutSeconds === 'number' && oSettings.TimeoutSeconds > 0)
+	if (App.getUserRole() !== Enums.UserRole.Anonymous && typeof oSettings.TimeoutMinutes === 'number' && oSettings.TimeoutMinutes > 0)
 	{
-		iTimeoutSeconds = oSettings.TimeoutSeconds;
+		iTimeoutMinutes = oSettings.TimeoutMinutes;
 
 		SetSessionTimeout();
 

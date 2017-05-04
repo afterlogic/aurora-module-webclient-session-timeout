@@ -1,6 +1,10 @@
 {
     "Disabled": [
-		false,
+		true,
 		"bool"
+	],
+    "TimeoutMinutes": [
+		30,
+		"int"
 	]
 }
