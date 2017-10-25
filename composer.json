@@ -6,6 +6,6 @@
 		"afterlogic/aurora-framework": "~0.6"
 	},
 	"extra": {
-		"installer-name": "SessionTimeoutWeblient"
+		"installer-name": "SessionTimeoutWebclient"
 	}
 }
