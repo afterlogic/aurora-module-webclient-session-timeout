@@ -1,14 +1,26 @@
 {
-    "Disabled": [
-		false,
-		"bool"
-	],
-    "TimeoutMinutes": [
-		30,
-		"int"
-	],
-    "IncludeInMobile": [
-		true,
-		"bool"
-	]
+  "Disabled": [
+    false,
+    "bool"
+  ],
+  "Disabled_Description": [
+    "",
+    "string"
+  ],
+  "TimeoutMinutes": [
+    30,
+    "int"
+  ],
+  "TimeoutMinutes_Description": [
+    "",
+    "string"
+  ],
+  "IncludeInMobile": [
+    true,
+    "bool"
+  ],
+  "IncludeInMobile_Description": [
+    "",
+    "string"
+  ]
 }
