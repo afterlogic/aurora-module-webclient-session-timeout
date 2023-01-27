@@ -9,7 +9,7 @@ namespace Aurora\Modules\SessionTimeoutWebclient;
 
 /**
  * System module which kill the user session on after expiry of the specified period of time.
- * 
+ *
  * @license https://www.gnu.org/licenses/agpl-3.0.html AGPL-3.0
  * @license https://afterlogic.com/products/common-licensing Afterlogic Software License
  * @copyright Copyright (c) 2023, Afterlogic Corp.
@@ -18,19 +18,19 @@ namespace Aurora\Modules\SessionTimeoutWebclient;
  */
 class Module extends \Aurora\System\Module\AbstractWebclientModule
 {
-	/***** public functions might be called with web API *****/
-	/**
-	 * Obtains list of module settings for authenticated user.
-	 * 
-	 * @return array
-	 */
-	public function GetSettings()
-	{
-		\Aurora\System\Api::checkUserRoleIsAtLeast(\Aurora\System\Enums\UserRole::Anonymous);
-		
-		return array(
-			'TimeoutMinutes' => $this->getConfig('TimeoutMinutes', 30),
-		);
-	}
-	/***** public functions might be called with web API *****/
+    /***** public functions might be called with web API *****/
+    /**
+     * Obtains list of module settings for authenticated user.
+     *
+     * @return array
+     */
+    public function GetSettings()
+    {
+        \Aurora\System\Api::checkUserRoleIsAtLeast(\Aurora\System\Enums\UserRole::Anonymous);
+
+        return array(
+            'TimeoutMinutes' => $this->getConfig('TimeoutMinutes', 30),
+        );
+    }
+    /***** public functions might be called with web API *****/
 }
